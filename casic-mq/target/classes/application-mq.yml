@@ -1,0 +1,33 @@
+ipServer:
+  #所在ip及需要监听的队列
+  ipAddr: 192.168.1.12
+  queue: casic.exchange.queue12
+  #一级中心
+  ipAddr11: 192.168.1.11
+  #二级中心1
+  ipAddr12: 192.168.1.12
+  #二级中心2
+  ipAddr13: 192.168.1.13
+  #二级中心3
+  ipAddr14: 192.168.1.14
+  #二级中心4
+  ipAddr15: 192.168.1.15
+spring:
+  application:
+    name: rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 4
+          initial-interval: 2000
+        acknowledge-mode: manual
+    #确认消息发送到交换器/队列
+    publisher-confirms: true
+    publisher-returns: true
+

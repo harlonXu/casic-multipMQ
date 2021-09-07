@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: rabbitmq
+    level: 3
+    ipAddr: 192.168.1.101
+  rabbitmq:
+    primary:
+      host: 192.168.1.240
+      port: 5672
+      username: rabbitmq
+      password: rabbitmq
+      queue: casic.queue192.168.1.101
+    second:
+      enable: false
+      host: localhost
+      port: 5672
+      username: rabbitmq
+      password: rabbitmq
+      queue: casic.queue192.168.1.101
+    #确认消息发送到交换器/队列
+    publisher-confirms: true
+    publisher-returns: true
+
